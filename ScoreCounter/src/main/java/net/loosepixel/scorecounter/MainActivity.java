@@ -269,7 +269,7 @@ public class MainActivity extends FragmentActivity {
         @Override
         public int getCount() {
             //This shouldn't be hard coded in, but I'm not really sure how to NOT hard code it in at the moment
-            return 2;
+            return 1;
         }
     }
 

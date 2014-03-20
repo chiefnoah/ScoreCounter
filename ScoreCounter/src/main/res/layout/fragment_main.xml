@@ -9,9 +9,9 @@
     <TableRow
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:padding="5dp">
+        android:measureWithLargestChild="false">
 
-        <TextView
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -51,9 +51,10 @@
     <TableRow
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#ff0100">
+        android:background="#ff0100"
+        android:measureWithLargestChild="false">
 
-        <ImageButton
+    <ImageButton
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -120,9 +121,10 @@
     <TableRow
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#ffff00">
+        android:background="#ffff00"
+        android:measureWithLargestChild="false">
 
-        <ImageButton
+    <ImageButton
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -187,9 +189,10 @@
     <TableRow
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#00de04">
+        android:background="#00de04"
+        android:measureWithLargestChild="false">
 
-        <ImageButton
+    <ImageButton
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -254,9 +257,10 @@
     <TableRow
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#0000ff">
+        android:background="#0000ff"
+        android:measureWithLargestChild="false">
 
-        <ImageButton
+    <ImageButton
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -321,9 +325,10 @@
     <TableRow
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#e6e6e6">
+        android:background="#e6e6e6"
+        android:measureWithLargestChild="false">
 
-        <ImageButton
+    <ImageButton
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -388,9 +393,10 @@
     <TableRow
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#000000">
+        android:background="#000000"
+        android:measureWithLargestChild="false">
 
-        <ImageButton
+    <ImageButton
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -459,9 +465,10 @@
 
     <TableRow
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:measureWithLargestChild="false">
 
-        <TextView
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -494,9 +501,10 @@
 
     <TableRow
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:measureWithLargestChild="false">
 
-        <TextView
+    <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
