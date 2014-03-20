@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="plus">+</string>
+    <string name="number">Number</string>
+    <string name="points">Points</string>
+    <string name="total">Total</string>
+    <string name="minus">-</string>
+    <string name="zero">0</string>
+    <string name="reset">Reset</string>
+    <string name="weight">Weight</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="eight">8</string>
+    <string name="sixteen">16</string>
+    <string name="twentyfour">24</string>
+    <string name="action_about">About</string>
+    <string name="copyright">Copyright © Noah Pederson</string>
+    <string name="title_activity_about">About</string>
+    <string name="shoutout">Keep on fishing!</string>
+</resources>

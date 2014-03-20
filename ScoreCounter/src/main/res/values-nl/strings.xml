@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="number">Aantal</string>
+    <string name="points">Punten</string>
+    <string name="total">Totaal</string>
+    <string name="weight">Gewicht</string>
+    <string name="shoutout">Blijven vissen!</string>
+</resources>
