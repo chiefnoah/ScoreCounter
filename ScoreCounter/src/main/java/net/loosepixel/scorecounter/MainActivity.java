@@ -1,13 +1,12 @@
 package net.loosepixel.scorecounter;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.app.Fragment;
-import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -263,10 +262,6 @@ public class MainActivity extends FragmentActivity {
             if(i==0) {
                 fragment = new Fragment_Main();
             }
-            else if(i==1) {
-                fragment = new Fragment_History();
-            }
-
             return fragment;
 
         }
