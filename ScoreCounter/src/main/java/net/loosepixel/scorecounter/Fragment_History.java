@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.io.File;
-
 /**
  * Created by peder_000 on 2/1/14.
  */
@@ -15,7 +13,7 @@ public class Fragment_History extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
+        super.onCreate(savedInstanceState);
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
