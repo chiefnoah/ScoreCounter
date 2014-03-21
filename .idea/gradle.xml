@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="C:\Users\peder_000\Development\Android\Android Studio\ScoreCounter" />
-            <option value="C:\Users\peder_000\Development\Android\Android Studio\ScoreCounter\ScoreCounter" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ScoreCounter" />
           </set>
         </option>
       </GradleProjectSettings>

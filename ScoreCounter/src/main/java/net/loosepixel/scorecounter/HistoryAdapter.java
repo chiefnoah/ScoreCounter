@@ -65,7 +65,7 @@ public class HistoryAdapter {
 
     public HistoryAdapter open() {
         helper = new DbHelper(context);
-        //database = helper.getReadableDatabase();
+        //database = helper.getReadableDatabase(); //uncomment this and comment out the "getWritableDatabase() line to make this read ONLY
         database = helper.getWritableDatabase();
         return this;
     }
