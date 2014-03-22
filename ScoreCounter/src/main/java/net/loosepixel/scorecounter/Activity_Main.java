@@ -1,13 +1,12 @@
 package net.loosepixel.scorecounter;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v4.app.Fragment;
-import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,7 +24,7 @@ black 25
  */
 
 
-public class MainActivity extends FragmentActivity {
+public class Activity_Main extends FragmentActivity {
 
     //Constants
     private static final int RED_MULTIPLIER = 2;
@@ -34,23 +33,16 @@ public class MainActivity extends FragmentActivity {
     private static final int BLUE_MULTIPLIER = 8;
     private static final int WHITE_MULTIPLIER = 16;
     private static final int BLACK_MULTIPLIER = 24;
-
-
+    ViewPager viewPager = null;
     // weight = (totalPoints - 3) * 50
     private int totalPoints, numberTotal, weightTotal = 0;
-
+    //===============================================================
     //color number totals
     //When the "save" button is clicked, these are the values saved.
     //===============================================================
     private int red, yellow, green, blue, white, black = 0;
-    //===============================================================
-
     //Color point totals
     private int redT, yellowT, greenT, blueT, whiteT, blackT = 0;
-
-    ViewPager viewPager = null;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +73,7 @@ public class MainActivity extends FragmentActivity {
         int id = item.getItemId();
         if (id == R.id.action_about) {
 
-            startActivity(new Intent(this, About.class));
+            startActivity(new Intent(this, Activity_About.class));
             return true;
         }
 
