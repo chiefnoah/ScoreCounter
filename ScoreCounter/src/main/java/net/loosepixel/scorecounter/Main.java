@@ -7,12 +7,17 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 //TODO: Create asynchronous task to load the database info for fragment_history/perform other SQLite Queries
 //TODO: Add Toast notification popups
@@ -253,9 +258,18 @@ public class Main extends FragmentActivity {
 
     public void save(View v) {
         Calendar c = Calendar.getInstance();
+        String d = c.get(Calendar.DATE) + "/" + c.get(Calendar.MONTH) + "/" + c.get(Calendar.YEAR);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = null;
+        try {
+            date = sdf.parse(d);
+        } catch (ParseException e) {
+            Log.e("Parse Ex.", "Failed to parse date");
+        }
+        DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(this);
+        String s = dateFormat.format(date);
 
-        String date = c.get(Calendar.DATE) + "/" + c.get(Calendar.MONTH) + "/" + c.get(Calendar.YEAR);
-        historyDatabaseAdapter.insert(date, red, yellow, green, blue, white, black);
+        historyDatabaseAdapter.insert(s, red, yellow, green, blue, white, black);
     }
 
     public class MyAdapter extends FragmentStatePagerAdapter {
