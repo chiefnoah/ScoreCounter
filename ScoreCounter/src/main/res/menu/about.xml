@@ -1,4 +1,4 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
-    tools:context="net.loosepixel.scorecounter.Activity_About">
+    tools:context="net.loosepixel.scorecounter.About">
 
 </menu>

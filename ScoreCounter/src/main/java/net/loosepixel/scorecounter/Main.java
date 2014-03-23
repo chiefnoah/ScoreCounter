@@ -12,7 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Calendar;
 
+//TODO: Create asynchronous task to load the database info for fragment_history/perform other SQLite Queries
+//TODO: Add Toast notification popups
 /*
 6 colors
 red: 2
@@ -24,7 +27,7 @@ black 25
  */
 
 
-public class Activity_Main extends FragmentActivity {
+public class Main extends FragmentActivity {
 
     //Constants
     private static final int RED_MULTIPLIER = 2;
@@ -34,6 +37,8 @@ public class Activity_Main extends FragmentActivity {
     private static final int WHITE_MULTIPLIER = 16;
     private static final int BLACK_MULTIPLIER = 24;
     ViewPager viewPager = null;
+    //Database Helper
+    HistoryAdapter historyDatabaseAdapter;
     // weight = (totalPoints - 3) * 50
     private int totalPoints, numberTotal, weightTotal = 0;
     //===============================================================
@@ -52,6 +57,9 @@ public class Activity_Main extends FragmentActivity {
         setContentView(R.layout.activity_main);
         viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(new MyAdapter(getSupportFragmentManager()));
+
+        //Initialize Database Object
+        historyDatabaseAdapter = new HistoryAdapter(this);
 
     }
 
@@ -73,7 +81,7 @@ public class Activity_Main extends FragmentActivity {
         int id = item.getItemId();
         if (id == R.id.action_about) {
 
-            startActivity(new Intent(this, Activity_About.class));
+            startActivity(new Intent(this, About.class));
             return true;
         }
 
@@ -241,6 +249,13 @@ public class Activity_Main extends FragmentActivity {
             black--;
         }
         updateTotals();
+    }
+
+    public void save(View v) {
+        Calendar c = Calendar.getInstance();
+
+        String date = c.get(Calendar.DATE) + "/" + c.get(Calendar.MONTH) + "/" + c.get(Calendar.YEAR);
+        historyDatabaseAdapter.insert(date, red, yellow, green, blue, white, black);
     }
 
     public class MyAdapter extends FragmentStatePagerAdapter {

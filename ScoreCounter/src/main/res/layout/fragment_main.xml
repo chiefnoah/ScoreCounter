@@ -1,19 +1,18 @@
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="fill_parent">
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView">
+        android:layout_height="wrap_content">
 
         <TableLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:stretchColumns="0,2,3,4"
             android:measureWithLargestChild="false"
-            android:shrinkColumns="1, 5">
+            android:shrinkColumns="1, 5"
+            android:stretchColumns="0,2,3,4">
 
             <TableRow
                 android:layout_width="fill_parent"
@@ -21,39 +20,39 @@
                 android:padding="5dp">
 
                 <TextView
+                    android:id="@id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/number"
-                    android:id="@id/textView"
                     android:layout_column="2"
-                    android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/number"
                     android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/points"
-                    android:id="@id/textView"
                     android:layout_column="3"
-                    android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/points"
                     android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/total"
-                    android:id="@id/textView"
                     android:layout_column="4"
-                    android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/total"
                     android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textStyle="bold" />
             </TableRow>
 
@@ -63,66 +62,66 @@
                 android:background="#ff0100">
 
                 <ImageButton
+                    android:id="@id/redPlusButton"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/plus"
-                    android:id="@id/redPlusButton"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:layout_weight="2"
+                    android:background="#ff0000"
                     android:clickable="true"
                     android:enabled="true"
+                    android:importantForAccessibility="yes"
                     android:onClick="addRed"
-                    android:layout_weight="2"
                     android:src="@drawable/sel_red_plus"
-                    android:visibility="visible"
-                    android:background="#ff0000"
-                    android:importantForAccessibility="yes" />
+                    android:text="@string/plus"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/zero"
                     android:id="@id/redNumberTextView"
-                    android:layout_column="2"
-                    android:layout_gravity="center"
-                    android:background="#ff0100" />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/two"
-                    android:id="@id/redPointTextView"
                     android:layout_column="2"
                     android:layout_gravity="center"
-                    android:background="#ff0100" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:background="#ff0100"
                     android:text="@string/zero"
-                    android:id="@id/redTotalTextView"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@id/redPointTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_gravity="center"
-                    android:background="#ff0100" />
+                    android:background="#ff0100"
+                    android:text="@string/two"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@id/redTotalTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_gravity="center"
+                    android:background="#ff0100"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <ImageButton
+                    android:id="@id/redMinusButton"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/minus"
-                    android:id="@id/redMinusButton"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:layout_weight="2"
+                    android:background="#ff0002"
                     android:clickable="true"
                     android:enabled="true"
                     android:onClick="subtractRed"
-                    android:layout_weight="2"
                     android:src="@drawable/sel_red_minus"
-                    android:background="#ff0002" />
+                    android:text="@string/minus"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -132,64 +131,64 @@
                 android:background="#ffff00">
 
                 <ImageButton
+                    android:id="@id/yellowPlusButton"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/plus"
-                    android:id="@id/yellowPlusButton"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:layout_weight="2"
+                    android:background="#ffff00"
                     android:clickable="true"
                     android:enabled="true"
                     android:onClick="addYellow"
-                    android:layout_weight="2"
                     android:src="@drawable/sel_yellow_plus"
-                    android:background="#ffff00" />
+                    android:text="@string/plus"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/zero"
                     android:id="@id/yellowNumberTextView"
-                    android:layout_column="2"
-                    android:layout_gravity="center"
-                    android:background="#ffff00" />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/three"
-                    android:id="@id/yellowPointTextView"
                     android:layout_column="2"
                     android:layout_gravity="center"
-                    android:background="#ffff00" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:background="#ffff00"
                     android:text="@string/zero"
-                    android:id="@id/yellowTotalTextView"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@id/yellowPointTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_gravity="center"
-                    android:background="#ffff00" />
+                    android:background="#ffff00"
+                    android:text="@string/three"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@id/yellowTotalTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_gravity="center"
+                    android:background="#ffff00"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <ImageButton
+                    android:id="@id/yellowMinusButton"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/minus"
-                    android:id="@id/yellowMinusButton"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:layout_weight="2"
+                    android:background="#ffff00"
                     android:clickable="true"
                     android:enabled="true"
                     android:onClick="subtractYellow"
-                    android:layout_weight="2"
-                    android:background="#ffff00"
-                    android:src="@drawable/sel_yellow_minus" />
+                    android:src="@drawable/sel_yellow_minus"
+                    android:text="@string/minus"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -199,64 +198,64 @@
                 android:background="#00de04">
 
                 <ImageButton
+                    android:id="@id/greenPlusButton"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/plus"
-                    android:id="@id/greenPlusButton"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:layout_weight="2"
+                    android:background="#00de04"
                     android:clickable="true"
                     android:enabled="true"
                     android:onClick="addGreen"
-                    android:layout_weight="2"
                     android:src="@drawable/sel_green_plus"
-                    android:background="#00de04" />
+                    android:text="@string/plus"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/zero"
                     android:id="@id/greenNumberTextView"
-                    android:layout_column="2"
-                    android:layout_gravity="center"
-                    android:background="#00de04" />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/four"
-                    android:id="@id/greenPointTextView"
                     android:layout_column="2"
                     android:layout_gravity="center"
-                    android:background="#00de04" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:background="#00de04"
                     android:text="@string/zero"
-                    android:id="@id/greenTotalTextView"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@id/greenPointTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_gravity="center"
-                    android:background="#00de04" />
+                    android:background="#00de04"
+                    android:text="@string/four"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@id/greenTotalTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_gravity="center"
+                    android:background="#00de04"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <ImageButton
+                    android:id="@id/greenMinusButton"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/minus"
-                    android:id="@id/greenMinusButton"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:layout_weight="2"
+                    android:background="#00de04"
                     android:clickable="true"
                     android:enabled="true"
                     android:onClick="subtractGreen"
-                    android:layout_weight="2"
                     android:src="@drawable/sel_green_minus"
-                    android:background="#00de04" />
+                    android:text="@string/minus"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -266,64 +265,64 @@
                 android:background="#0000ff">
 
                 <ImageButton
+                    android:id="@id/bluePlusButton"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/plus"
-                    android:id="@id/bluePlusButton"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:layout_weight="2"
+                    android:background="#0000ff"
                     android:clickable="true"
                     android:enabled="true"
                     android:onClick="addBlue"
-                    android:layout_weight="2"
                     android:src="@drawable/sel_blue_plus"
-                    android:background="#0000ff" />
+                    android:text="@string/plus"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/zero"
                     android:id="@id/blueNumberTextView"
-                    android:layout_column="2"
-                    android:layout_gravity="center"
-                    android:background="#0000ff" />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/eight"
-                    android:id="@id/bluePointTextView"
                     android:layout_column="2"
                     android:layout_gravity="center"
-                    android:background="#0000ff" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:background="#0000ff"
                     android:text="@string/zero"
-                    android:id="@id/blueTotalTextView"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@id/bluePointTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_gravity="center"
-                    android:background="#0000ff" />
+                    android:background="#0000ff"
+                    android:text="@string/eight"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@id/blueTotalTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_gravity="center"
+                    android:background="#0000ff"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <ImageButton
+                    android:id="@id/blueMinusButton"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/minus"
-                    android:id="@id/blueMinusButton"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:layout_weight="2"
+                    android:background="#0000ff"
                     android:clickable="true"
                     android:enabled="true"
                     android:onClick="subtractBlue"
-                    android:layout_weight="2"
                     android:src="@drawable/sel_blue_minus"
-                    android:background="#0000ff" />
+                    android:text="@string/minus"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -333,64 +332,64 @@
                 android:background="#e6e6e6">
 
                 <ImageButton
+                    android:id="@id/whitePlusButton"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/plus"
-                    android:id="@id/whitePlusButton"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:layout_weight="2"
+                    android:background="#e6e6e6"
                     android:clickable="true"
                     android:enabled="true"
                     android:onClick="addWhite"
-                    android:layout_weight="2"
                     android:src="@drawable/sel_white_plus"
-                    android:background="#e6e6e6" />
+                    android:text="@string/plus"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/zero"
                     android:id="@id/whiteNumberTextView"
-                    android:layout_column="2"
-                    android:layout_gravity="center"
-                    android:background="#e6e6e6" />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/sixteen"
-                    android:id="@id/whitePointTextView"
                     android:layout_column="2"
                     android:layout_gravity="center"
-                    android:background="#e6e6e6" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:background="#e6e6e6"
                     android:text="@string/zero"
-                    android:id="@id/whiteTotalTextView"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@id/whitePointTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_gravity="center"
-                    android:background="#e6e6e6" />
+                    android:background="#e6e6e6"
+                    android:text="@string/sixteen"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@id/whiteTotalTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_gravity="center"
+                    android:background="#e6e6e6"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <ImageButton
+                    android:id="@id/whiteMinusButton"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/minus"
-                    android:id="@id/whiteMinusButton"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:layout_weight="2"
+                    android:background="#e6e6e6"
                     android:clickable="true"
                     android:enabled="true"
                     android:onClick="subtractWhite"
-                    android:layout_weight="2"
                     android:src="@drawable/sel_white_minus"
-                    android:background="#e6e6e6" />
+                    android:text="@string/minus"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -400,69 +399,69 @@
                 android:background="#000000">
 
                 <ImageButton
+                    android:id="@+id/button10"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/plus"
-                    android:id="@+id/button10"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:layout_weight="2"
+                    android:background="#000000"
                     android:clickable="true"
                     android:enabled="true"
-                    android:textColor="#dadada"
                     android:onClick="addBlack"
-                    android:layout_weight="2"
                     android:src="@drawable/sel_white_plus"
-                    android:background="#000000" />
+                    android:text="@string/plus"
+                    android:textColor="#dadada"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/zero"
                     android:id="@id/blackNumberTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_gravity="center"
                     android:background="#000000"
-                    android:textColor="#dadada" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/twentyfour"
-                    android:id="@id/blackPointTextView"
-                    android:layout_column="2"
-                    android:layout_gravity="center"
-                    android:background="#000000"
-                    android:textColor="#dadada" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/zero"
-                    android:id="@id/blackTotalTextView"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#dadada" />
+
+                <TextView
+                    android:id="@id/blackPointTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_gravity="center"
                     android:background="#000000"
+                    android:text="@string/twentyfour"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#dadada" />
+
+                <TextView
+                    android:id="@id/blackTotalTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_gravity="center"
+                    android:background="#000000"
+                    android:text="@string/zero"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="#dadada" />
 
                 <ImageButton
+                    android:id="@id/blackMinusButton"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/minus"
-                    android:id="@id/blackMinusButton"
-                    android:textStyle="bold"
-                    android:textSize="30dp"
+                    android:layout_weight="2"
+                    android:background="#000000"
                     android:clickable="true"
                     android:enabled="true"
-                    android:textColor="#dadada"
                     android:onClick="subtractBlack"
-                    android:layout_weight="2"
                     android:src="@drawable/sel_white_minus"
-                    android:background="#000000" />
+                    android:text="@string/minus"
+                    android:textColor="#dadada"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
 
             </TableRow>
 
@@ -471,82 +470,92 @@
                 android:layout_height="fill_parent">
 
                 <TextView
+                    android:id="@id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_column="2"
+                    android:layout_gravity="center_horizontal"
                     android:text="@string/number"
-                    android:id="@id/textView"
-                    android:layout_column="2"
-                    android:textSize="15dp"
-                    android:layout_gravity="center_horizontal" />
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="15dp" />
 
                 <TextView
+                    android:id="@id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/weight"
-                    android:id="@id/textView"
                     android:layout_column="3"
-                    android:textSize="15dp"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/weight"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="15dp" />
 
                 <TextView
+                    android:id="@id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/total"
-                    android:id="@id/textView"
                     android:layout_column="4"
-                    android:textSize="15dp"
-                    android:layout_gravity="center_horizontal" />
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/total"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="15dp" />
             </TableRow>
 
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/zero"
-                    android:id="@id/numberTotalTextView"
-                    android:layout_column="2"
-                    android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:layout_gravity="center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/zero"
-                    android:id="@id/weightTotalTextView"
-                    android:layout_column="3"
-                    android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:layout_gravity="center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/zero"
-                    android:id="@id/totalPointsTextView"
-                    android:layout_column="4"
-                    android:textAlignment="center"
-                    android:textStyle="bold"
-                    android:layout_gravity="center" />
 
                 <Button
+                    android:id="@id/saveButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/reset"
+                    android:onClick="save"
+                    android:singleLine="true"
+                    android:text="@string/save"
+                    android:textColorHighlight="#ff0000"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@id/numberTotalTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_gravity="center"
+                    android:text="@string/zero"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@id/weightTotalTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:layout_gravity="center"
+                    android:text="@string/zero"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@id/totalPointsTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="4"
+                    android:layout_gravity="center"
+                    android:text="@string/zero"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold" />
+
+                <Button
                     android:id="@id/resetButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_column="5"
-                    android:textStyle="bold|italic"
                     android:onClick="reset"
-                    android:textColorHighlight="#ff0000" />
+                    android:text="@string/reset"
+                    android:textColorHighlight="#ff0000"
+                    android:textStyle="bold|italic" />
             </TableRow>
 
         </TableLayout>

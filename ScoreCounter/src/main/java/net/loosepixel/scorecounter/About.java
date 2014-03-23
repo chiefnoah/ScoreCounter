@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Activity_About extends ActionBarActivity {
+public class About extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class Activity_About extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.about, menu);
         return true;
@@ -41,9 +41,8 @@ public class Activity_About extends ActionBarActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_about, container, false);
-            return rootView;
+                                 Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.fragment_about, container, false);
         }
     }
 

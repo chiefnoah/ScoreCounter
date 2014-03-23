@@ -18,4 +18,6 @@
     <string name="copyright">Copyright © Noah Pederson</string>
     <string name="title_activity_about">About</string>
     <string name="shoutout">Keep on fishing!</string>
+    <string name="load">Load</string>
+    <string name="save">Save</string>
 </resources>
