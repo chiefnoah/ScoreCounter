@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -21,6 +22,8 @@ import java.util.Date;
 
 //TODO: Create asynchronous task to load the database info for fragment_history/perform other SQLite Queries
 //TODO: Add Toast notification popups
+//TODO: fix main layout
+
 /*
 6 colors
 red: 2
@@ -87,6 +90,9 @@ public class Main extends FragmentActivity {
         if (id == R.id.action_about) {
 
             startActivity(new Intent(this, About.class));
+            return true;
+        } else if (id == R.id.action_settings) {
+            startActivity(new Intent(this, Settings.class));
             return true;
         }
 
@@ -269,7 +275,8 @@ public class Main extends FragmentActivity {
         DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(this);
         String s = dateFormat.format(date);
 
-        historyDatabaseAdapter.insert(s, red, yellow, green, blue, white, black);
+        long id = historyDatabaseAdapter.insert(s, red, yellow, green, blue, white, black);
+        Toast.makeText(this, getString(R.string.saving_database) + " #" + id, Toast.LENGTH_LONG).show();
     }
 
     public class MyAdapter extends FragmentStatePagerAdapter {

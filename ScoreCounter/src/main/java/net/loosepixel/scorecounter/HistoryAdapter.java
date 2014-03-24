@@ -38,7 +38,7 @@ public class HistoryAdapter {
             KEY_BLUE + " TEXT NOT NULL, " +
             KEY_WHITE + " TEXT NOT NULL, " +
             KEY_BLACK + " TEXT NOT NULL);";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private final Context context;
     private DbHelper helper;
     private SQLiteDatabase database;

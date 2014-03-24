@@ -26,4 +26,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="load">Load</string>
     <string name="save">Save</string>
+    <string name="saving_database">Saving to database</string>
+    <string name="deleting_database">Deleting the stored database</string>
+    <string name="pref_vibrate">Vibrate</string>
+    <string name="pref_vibrate_summ">Vibrate when buttons are pressed.</string>
+    <string name="pref_delete_database">Delete the saved data.</string>
 </resources>
