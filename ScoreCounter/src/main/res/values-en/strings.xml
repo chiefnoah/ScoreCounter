@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Score Counter</string>
+    <string name="action_settings">Settings</string>
     <string name="plus">+</string>
     <string name="number">Number</string>
     <string name="points">Points</string>
@@ -18,6 +20,9 @@
     <string name="copyright">Copyright © Noah Pederson</string>
     <string name="title_activity_about">About</string>
     <string name="shoutout">Keep on fishing!</string>
+    <string name="websiteURL">http://hengelsportvereniging-excelsior.mysites.nl/</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
     <string name="load">Load</string>
     <string name="save">Save</string>
     <string name="saving_database">Saving to database</string>
@@ -25,4 +30,5 @@
     <string name="pref_vibrate">Vibrate</string>
     <string name="pref_vibrate_summ">Vibrate when buttons are pressed.</string>
     <string name="pref_delete_database">Delete the saved data.</string>
+    <string name="clear_database">Clear History</string>
 </resources>

@@ -1,7 +1,11 @@
 package net.loosepixel.scorecounter;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -21,7 +25,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 //TODO: Create asynchronous task to load the database info for fragment_history/perform other SQLite Queries
-//TODO: Add Toast notification popups
 //TODO: fix main layout
 
 /*
@@ -47,11 +50,12 @@ public class Main extends FragmentActivity {
     ViewPager viewPager = null;
     //Database Helper
     HistoryAdapter historyDatabaseAdapter;
+
+    SharedPreferences sharedPref;
     // weight = (totalPoints - 3) * 50
     private int totalPoints, numberTotal, weightTotal = 0;
     //===============================================================
     //color number totals
-    //When the "save" button is clicked, these are the values saved.
     //===============================================================
     private int red, yellow, green, blue, white, black = 0;
     //Color point totals
@@ -68,7 +72,19 @@ public class Main extends FragmentActivity {
 
         //Initialize Database Object
         historyDatabaseAdapter = new HistoryAdapter(this);
+        sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+    }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        historyDatabaseAdapter.open();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        historyDatabaseAdapter.close();
     }
 
 
@@ -123,6 +139,7 @@ public class Main extends FragmentActivity {
         weightTotal = 0;
 
         updateText();
+        vibrate();
     }
 
     //calculates totals based on numbers then updates the view
@@ -141,6 +158,16 @@ public class Main extends FragmentActivity {
         weightTotal = (totalPoints - numberTotal) * 50;
 
         updateText();
+    }
+
+    public void vibrate() {
+
+        if (sharedPref.getBoolean("pref_vibrate", true)) {
+            Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+            //Vibrate for 500 milliseconds
+            v.vibrate(50);
+        }
+
     }
 
 
@@ -193,6 +220,7 @@ public class Main extends FragmentActivity {
     public void addRed(View v) {
         red++;
         updateTotals();
+        vibrate();
     }
 
     public void subtractRed(View v) {
@@ -200,23 +228,27 @@ public class Main extends FragmentActivity {
             red--;
         }
         updateTotals();
+        vibrate();
     }
 
     public void addYellow(View v) {
         yellow++;
         updateTotals();
+        vibrate();
     }
 
     public void subtractYellow(View v) {
         if (yellow > 0) {
             yellow--;
             updateTotals();
+            vibrate();
         }
     }
 
     public void addGreen(View v) {
         green++;
         updateTotals();
+        vibrate();
     }
 
     public void subtractGreen(View v) {
@@ -224,11 +256,13 @@ public class Main extends FragmentActivity {
             green--;
         }
         updateTotals();
+        vibrate();
     }
 
     public void addBlue(View v) {
         blue++;
         updateTotals();
+        vibrate();
     }
 
     public void subtractBlue(View v) {
@@ -236,11 +270,13 @@ public class Main extends FragmentActivity {
             blue--;
         }
         updateTotals();
+        vibrate();
     }
 
     public void addWhite(View v) {
         white++;
         updateTotals();
+        vibrate();
     }
 
     public void subtractWhite(View v) {
@@ -248,11 +284,13 @@ public class Main extends FragmentActivity {
             white--;
         }
         updateTotals();
+        vibrate();
     }
 
     public void addBlack(View v) {
         black++;
         updateTotals();
+        vibrate();
     }
 
     public void subtractBlack(View v) {
@@ -260,6 +298,7 @@ public class Main extends FragmentActivity {
             black--;
         }
         updateTotals();
+        vibrate();
     }
 
     public void save(View v) {
@@ -275,8 +314,11 @@ public class Main extends FragmentActivity {
         DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(this);
         String s = dateFormat.format(date);
 
-        long id = historyDatabaseAdapter.insert(s, red, yellow, green, blue, white, black);
-        Toast.makeText(this, getString(R.string.saving_database) + " #" + id, Toast.LENGTH_LONG).show();
+        //long id = historyDatabaseAdapter.insert(s, red, yellow, green, blue, white, black);
+
+        long id = historyDatabaseAdapter.insert(s, numberTotal, weightTotal, totalPoints);
+        Toast.makeText(this, getString(R.string.saving_database) + " #" + id, Toast.LENGTH_SHORT).show();
+        vibrate();
     }
 
     public class MyAdapter extends FragmentStatePagerAdapter {

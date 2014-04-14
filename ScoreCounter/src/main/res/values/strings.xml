@@ -31,4 +31,5 @@
     <string name="pref_vibrate">Vibrate</string>
     <string name="pref_vibrate_summ">Vibrate when buttons are pressed.</string>
     <string name="pref_delete_database">Delete the saved data.</string>
+    <string name="clear_database">Clear History</string>
 </resources>

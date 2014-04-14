@@ -30,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:autoLink="web"
+        android:gravity="center_horizontal"
         android:linksClickable="true"
         android:paddingTop="5dp"
         android:text="@string/websiteURL"

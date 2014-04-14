@@ -45,4 +45,6 @@
     <item name="historyListView" type="id">historyListView</item>
     <item name="blackPlusButton" type="id">blackPlusButton</item>
     <item name="saveButton" type="id">saveButton</item>
+    <item name="historyList" type="id">historyList</item>
+    <item name="buttonClearHistory" type="id">buttonClearHistory</item>
 </resources>
