@@ -1,7 +1,16 @@
+/*
+ * Copyright (c) 2014. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
 package net.loosepixel.scorecounter;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -57,7 +66,7 @@ public class HistoryAdapter {
             KEY_WHITE + " TEXT NOT NULL, " +
             KEY_BLACK + " TEXT NOT NULL);";
             */
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 9;
     private final Context context;
     private DbHelper helper;
     private SQLiteDatabase database;
@@ -112,6 +121,19 @@ public class HistoryAdapter {
         context.deleteDatabase(DATABASE_NAME);
         Toast.makeText(context, "Clearing database", Toast.LENGTH_SHORT).show();
     }
+
+    public Cursor getDataCursor() {
+        //Cursor c = new database.q
+        String columns[] = {KEY_DATE, KEY_WEIGHT, KEY_NUMBER, KEY_TOTAL};
+        try {
+            return database.query(TABLE_HISTORY, columns, null, null, null, null, null, KEY_DATE + " DESC");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
 
     private static class DbHelper extends SQLiteOpenHelper {
         public DbHelper(Context context) {

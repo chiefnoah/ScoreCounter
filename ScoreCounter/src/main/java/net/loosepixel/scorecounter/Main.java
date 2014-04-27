@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2014. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
 package net.loosepixel.scorecounter;
 
 import android.content.Context;
@@ -23,8 +31,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
-//TODO: Create asynchronous task to load the database info for fragment_history/perform other SQLite Queries
 //TODO: fix main layout
 
 /*
@@ -330,10 +336,9 @@ public class Main extends FragmentActivity {
         @Override
         public Fragment getItem(int i) {
             Fragment fragment = null;
-            if(i==0) {
+            if (i == 0) {
                 fragment = new Fragment_Main();
-            }
-            else if(i==1) {
+            } else if (i == 1) {
                 fragment = new Fragment_History();
             }
 
