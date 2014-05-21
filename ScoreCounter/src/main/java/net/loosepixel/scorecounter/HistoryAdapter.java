@@ -25,12 +25,16 @@ public class HistoryAdapter {
     /*
     Column Names
      */
-    public static final String KEY_ROWID = "_id";
+    public static final String _id = "_id";
     public static final String KEY_DATE = "date_recorded";
     public static final String KEY_NUMBER = "number_recorded";
     public static final String KEY_WEIGHT = "weight_recorded";
     public static final String KEY_TOTAL = "total_recorded";
-
+    public static String columns[] = {_id, KEY_DATE, KEY_WEIGHT, KEY_NUMBER, KEY_TOTAL};
+    /*
+    Database Schema
+     */
+    private static final String DATABASE_NAME = "history.db";
     //Changed the data stored by the database so this is useless
     /*
     public static final String KEY_RED = "red_number";
@@ -40,24 +44,17 @@ public class HistoryAdapter {
     public static final String KEY_WHITE = "white_number";
     public static final String KEY_BLACK = "black_number";
     */
-
-    /*
-    Database Schema
-     */
-    private static final String DATABASE_NAME = "history.db";
     private static final String TABLE_HISTORY = "historyTable";
-
     private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_HISTORY + " (" +
-            KEY_ROWID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            _id + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             KEY_DATE + " TEXT NOT NULL, " +
             KEY_NUMBER + " TEXT NOT NULL, " +
             KEY_WEIGHT + " TEXT NOT NULL, " +
             KEY_TOTAL + " TEXT NOT NULL);";
-
     //Also useless because of the change
     /*
     private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_HISTORY + " (" +
-            KEY_ROWID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            _id + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             KEY_DATE + " TEXT NOT NULL, " +
             KEY_RED + " TEXT NOT NULL, " +
             KEY_YELLOW + " TEXT NOT NULL, " +
@@ -66,7 +63,10 @@ public class HistoryAdapter {
             KEY_WHITE + " TEXT NOT NULL, " +
             KEY_BLACK + " TEXT NOT NULL);";
             */
-    private static final int DATABASE_VERSION = 9;
+    private static final int DATABASE_VERSION = 10;
+    //I'm making this into a singleton class
+    //This is EXTREMELY bad coding practice but it SHOULD work
+    private static HistoryAdapter thisInstance;
     private final Context context;
     private DbHelper helper;
     private SQLiteDatabase database;
@@ -76,6 +76,12 @@ public class HistoryAdapter {
         //open();
     }
 
+    public static HistoryAdapter getInstance(Context c) {
+        if (thisInstance == null) {
+            thisInstance = new HistoryAdapter(c);
+        }
+        return thisInstance;
+    }
     public HistoryAdapter open() {
         helper = new DbHelper(context);
         database = helper.getWritableDatabase();
@@ -123,14 +129,14 @@ public class HistoryAdapter {
     }
 
     public Cursor getDataCursor() {
-        //Cursor c = new database.q
-        String columns[] = {KEY_DATE, KEY_WEIGHT, KEY_NUMBER, KEY_TOTAL};
-        try {
-            return database.query(TABLE_HISTORY, columns, null, null, null, null, null, KEY_DATE + " DESC");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
+
+        //  try {
+        return database.query(TABLE_HISTORY, columns, null, null, null, null, null);//KEY_DATE + " DESC");
+        //  } catch (SQLException e) {
+        //e.printStackTrace();
+        //     Log.e("ERROR", "Failed to query SQL Database");
+        //    return null;
+        // }
 
     }
 

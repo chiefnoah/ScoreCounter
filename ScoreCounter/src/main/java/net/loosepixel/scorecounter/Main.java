@@ -1,3 +1,4 @@
+
 /*
  * Copyright (c) 2014. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
  * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
@@ -11,6 +12,7 @@ package net.loosepixel.scorecounter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -46,6 +48,7 @@ black 25
 
 public class Main extends FragmentActivity {
 
+
     //Constants
     private static final int RED_MULTIPLIER = 2;
     private static final int YELLOW_MULTIPLIER = 3;
@@ -53,11 +56,12 @@ public class Main extends FragmentActivity {
     private static final int BLUE_MULTIPLIER = 8;
     private static final int WHITE_MULTIPLIER = 16;
     private static final int BLACK_MULTIPLIER = 24;
-    ViewPager viewPager = null;
+
     //Database Helper
     HistoryAdapter historyDatabaseAdapter;
 
     SharedPreferences sharedPref;
+    ViewPager viewPager = null;
     // weight = (totalPoints - 3) * 50
     private int totalPoints, numberTotal, weightTotal = 0;
     //===============================================================
@@ -77,20 +81,26 @@ public class Main extends FragmentActivity {
         viewPager.setAdapter(new MyAdapter(getSupportFragmentManager()));
 
         //Initialize Database Object
-        historyDatabaseAdapter = new HistoryAdapter(this);
+        historyDatabaseAdapter = HistoryAdapter.getInstance(this);//new HistoryAdapter(this);
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+    }
+
+
+    public Cursor getCursor() {
+        Toast.makeText(this, "Too SLOW!", Toast.LENGTH_SHORT);
+        return historyDatabaseAdapter.getDataCursor();
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        historyDatabaseAdapter.open();
+        // historyDatabaseAdapter.open();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        historyDatabaseAdapter.close();
+        //historyDatabaseAdapter.close();
     }
 
 
