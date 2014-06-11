@@ -71,7 +71,7 @@ public class HistoryAdapter {
     private DbHelper helper;
     private SQLiteDatabase database;
 
-    public HistoryAdapter(Context c) throws SQLException {
+    public HistoryAdapter(Context c) {
         context = c;
         //open();
     }

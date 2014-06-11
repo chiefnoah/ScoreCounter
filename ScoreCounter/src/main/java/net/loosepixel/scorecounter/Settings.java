@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2014. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
 package net.loosepixel.scorecounter;
 
 import android.os.Bundle;
@@ -13,7 +21,7 @@ public class Settings extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings);
         setContentView(R.layout.activity_settings);
-        historyDatabaseAdapter = new HistoryAdapter(this);
+        historyDatabaseAdapter = HistoryAdapter.getInstance(this);
     }
 
     public void clearDatabase(View v) {
@@ -23,13 +31,13 @@ public class Settings extends PreferenceActivity {
     @Override
     public void onStart() {
         super.onStart();
-        historyDatabaseAdapter.open();
+        //historyDatabaseAdapter.open();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        historyDatabaseAdapter.close();
+        //historyDatabaseAdapter.close();
     }
 
 

@@ -33,7 +33,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-//TODO: fix main layout
+
 
 /*
 6 colors
@@ -62,6 +62,8 @@ public class Main extends FragmentActivity {
 
     SharedPreferences sharedPref;
     ViewPager viewPager = null;
+    MyAdapter myFragmentPageStateAdapter = null;
+
     // weight = (totalPoints - 3) * 50
     private int totalPoints, numberTotal, weightTotal = 0;
     //===============================================================
@@ -78,7 +80,8 @@ public class Main extends FragmentActivity {
 
         setContentView(R.layout.activity_main);
         viewPager = (ViewPager) findViewById(R.id.pager);
-        viewPager.setAdapter(new MyAdapter(getSupportFragmentManager()));
+        myFragmentPageStateAdapter = new MyAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(myFragmentPageStateAdapter);
 
         //Initialize Database Object
         historyDatabaseAdapter = HistoryAdapter.getInstance(this);//new HistoryAdapter(this);
@@ -335,6 +338,10 @@ public class Main extends FragmentActivity {
         long id = historyDatabaseAdapter.insert(s, numberTotal, weightTotal, totalPoints);
         Toast.makeText(this, getString(R.string.saving_database) + " #" + id, Toast.LENGTH_SHORT).show();
         vibrate();
+
+
+        Fragment_History fh = (Fragment_History) getSupportFragmentManager().getFragments().get(1);
+        fh.updateListView();
     }
 
     public class MyAdapter extends FragmentStatePagerAdapter {
@@ -361,6 +368,7 @@ public class Main extends FragmentActivity {
             //This shouldn't be hard coded in, but I'm not really sure how to NOT hard code it in at the moment
             return 2;
         }
+
     }
 
 }

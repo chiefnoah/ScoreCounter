@@ -18,7 +18,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 
 /**
@@ -46,24 +45,40 @@ public class Fragment_History extends Fragment {
 
     }
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //return inflater.inflate(R.layout.fragment_history, container, false);
-        View V = inflater.inflate(R.layout.fragment_history, container, false);
+    @Override
+    public void onResume() {
+        updateListView();
+        super.onResume();
+    }
 
+    public void updateListView() {
+        updateCursorData();
+        cursorAdapter.changeCursor(cursor);
+    }
 
+    private void updateCursorData() {
         //Activity activity = getActivity();
         //if(activity instanceof Main) {
         //           cursor = ((Main) activity).getCursor();
         HistoryAdapter ha = HistoryAdapter.getInstance(getActivity());
         ha.open();
         cursor = ha.getDataCursor();
-        Toast.makeText(getActivity(), "Cursor has " + cursor.getColumnCount() + " columns", Toast.LENGTH_SHORT);
+        //Toast.makeText(getActivity(), "Cursor has " + cursor.getColumnCount() + " columns", Toast.LENGTH_SHORT);
         cursor.moveToFirst();
         //}
+    }
 
-        int items[] = {R.id.item_index, R.id.item_date, R.id.item_weight, R.id.item_number, R.id.item_total};
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        //return inflater.inflate(R.layout.fragment_history, container, false);
+        View V = inflater.inflate(R.layout.fragment_history, container, false);
+
+
+        updateCursorData();
+
+        int items[] = {R.id.item_date, R.id.item_weight, R.id.item_number, R.id.item_total};
+        String columns[] = {HistoryAdapter.KEY_DATE, HistoryAdapter.KEY_WEIGHT, HistoryAdapter.KEY_NUMBER, HistoryAdapter.KEY_TOTAL};
         cursorAdapter = new SimpleCursorAdapter(getActivity(), R.layout.database_list_item,
-                cursor, HistoryAdapter.columns, items, 0);
+                cursor, columns, items, 0);
 
 
         ListView LV = (ListView) V.findViewById(R.id.history_list);
@@ -71,7 +86,7 @@ public class Fragment_History extends Fragment {
             LV.setAdapter(cursorAdapter);
             Log.i("NOAH", "The cursor adapter has been set!");
         } else {
-            Log.i("NOAH", "The cursor adapter has NOT been set. :(");
+            Log.i("NOAH", "ERROR: The cursor adapter has NOT been set. :(");
             //Toast.makeText(getActivity(), "Failed to get cursor", Toast.LENGTH_SHORT).show();
         }
         return V;
