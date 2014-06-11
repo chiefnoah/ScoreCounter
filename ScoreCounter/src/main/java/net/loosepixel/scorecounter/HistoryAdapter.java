@@ -63,7 +63,7 @@ public class HistoryAdapter {
             KEY_WHITE + " TEXT NOT NULL, " +
             KEY_BLACK + " TEXT NOT NULL);";
             */
-    private static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 11;
     //I'm making this into a singleton class
     //This is EXTREMELY bad coding practice but it SHOULD work
     private static HistoryAdapter thisInstance;
@@ -130,13 +130,15 @@ public class HistoryAdapter {
 
     public Cursor getDataCursor() {
 
-        //  try {
-        return database.query(TABLE_HISTORY, columns, null, null, null, null, null);//KEY_DATE + " DESC");
-        //  } catch (SQLException e) {
-        //e.printStackTrace();
-        //     Log.e("ERROR", "Failed to query SQL Database");
-        //    return null;
-        // }
+        try {
+            Cursor dbq = database.query(TABLE_HISTORY, columns, null, null, null, null, null);
+            return dbq; //database.query(TABLE_HISTORY, columns, null, null, null, null, null);//KEY_DATE + " DESC");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Log.e("ERROR", "Failed to query SQL Database");
+            Toast.makeText(context, "Failed to query SQL Database", Toast.LENGTH_SHORT).show();
+            return null;
+        }
 
     }
 

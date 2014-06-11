@@ -55,6 +55,7 @@
     <item name="saveButton" type="id">saveButton</item>
     <item name="historyList" type="id">historyList</item>
     <item name="buttonClearHistory" type="id">buttonClearHistory</item>
+    <item name="item_date" type="id">item_date</item>
     <item name="item_weight" type="id">item_weight</item>
     <item name="item_number" type="id">item_number</item>
     <item name="item_total" type="id">item_total</item>

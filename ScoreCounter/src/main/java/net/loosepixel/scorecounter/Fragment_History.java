@@ -8,16 +8,17 @@
 
 package net.loosepixel.scorecounter;
 
-import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.CursorAdapter;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 /**
@@ -28,7 +29,7 @@ public class Fragment_History extends Fragment {
 
     Cursor cursor;
 
-    SimpleCursorAdapter cursorAdapter;
+    CursorAdapter cursorAdapter;
 
 
     @Override
@@ -42,33 +43,36 @@ public class Fragment_History extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        int items[] = {R.id.item_index, R.id.item_date, R.id.item_weight, R.id.item_number, R.id.item_total};
 
-        Activity activity = getActivity();
-        //if(activity instanceof Main) {
-        //           cursor = ((Main) activity).getCursor();
-        HistoryAdapter ha = HistoryAdapter.getInstance(getActivity());
-        ha.open();
-        cursor = ha.getDataCursor();
-        cursor.moveToFirst();
-        //}
-
-
-        cursorAdapter = new SimpleCursorAdapter(getActivity(), R.layout.database_list_item,
-                cursor, HistoryAdapter.columns, items);
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //return inflater.inflate(R.layout.fragment_history, container, false);
         View V = inflater.inflate(R.layout.fragment_history, container, false);
 
-        ListView LV = (ListView) this.getActivity().findViewById(R.id.list);
+
+        //Activity activity = getActivity();
+        //if(activity instanceof Main) {
+        //           cursor = ((Main) activity).getCursor();
+        HistoryAdapter ha = HistoryAdapter.getInstance(getActivity());
+        ha.open();
+        cursor = ha.getDataCursor();
+        Toast.makeText(getActivity(), "Cursor has " + cursor.getColumnCount() + " columns", Toast.LENGTH_SHORT);
+        cursor.moveToFirst();
+        //}
+
+        int items[] = {R.id.item_index, R.id.item_date, R.id.item_weight, R.id.item_number, R.id.item_total};
+        cursorAdapter = new SimpleCursorAdapter(getActivity(), R.layout.database_list_item,
+                cursor, HistoryAdapter.columns, items, 0);
+
+
+        ListView LV = (ListView) V.findViewById(R.id.history_list);
         if (cursorAdapter != null) {
             LV.setAdapter(cursorAdapter);
             Log.i("NOAH", "The cursor adapter has been set!");
         } else {
             Log.i("NOAH", "The cursor adapter has NOT been set. :(");
-            // Toast.makeText(getActivity(), "Failed to get cursor", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "Failed to get cursor", Toast.LENGTH_SHORT).show();
         }
         return V;
 
